@@ -1,0 +1,75 @@
+/* Search-bar Styles */
+.search-bar {
+  min-width: 22rem;
+  max-width: 44rem;
+  cursor: pointer;
+  border: 0.125rem solid var(--text-gray-400);
+  box-shadow: 9px 5px 99px -26px rgba(0, 0, 0, 0.54);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.5rem 0.75rem;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+}
+
+.search-bar:hover {
+  border: 0.125rem solid var(--text-gray-500);
+}
+
+.search-bar__p {
+  padding: 0.25rem 0.5rem;
+  color: var(--green-700);
+  background-color: var(--green-200);
+  font-weight: 500;
+}
+
+.search-bar__separtor {
+  color: var(--text-gray-400);
+}
+
+.search-bar__time {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: var(--text-gray-500);
+}
+
+.search-bar__avatar {
+  width: 24px;
+  height: 24px;
+}
+
+.search-bar__counter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-gray-500);
+}
+
+.search-bar__input {
+  border: none;
+  outline: none;
+  min-width: 6rem;
+  flex-grow: 1;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+.search-bar__buttons-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search-bar__button {
+  all: unset;
+  cursor: pointer;
+  transition: transform 150ms ease-in;
+  margin-right: 0.25rem;
+}
+
+.search-bar__button:hover {
+  transform: scale(1.04);
+}
+
+/* ----------------------------- */

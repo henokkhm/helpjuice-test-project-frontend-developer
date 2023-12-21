@@ -1,6 +1,10 @@
 body {
   font-family: 'Inter', sans-serif;
-  min-width: 375px;
+  min-width: 460px;
   max-width: 1440px;
   margin: 0 auto;
+}
+
+main {
+  padding: 2rem 1rem;
 }
