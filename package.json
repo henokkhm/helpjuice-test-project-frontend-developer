@@ -4,7 +4,8 @@
   "description": "This project contains my solution to the Helpjuice Front-End Developer Test Project",
   "main": "src/index.html",
   "scripts": {
-    "test": "npm run test"
+    "test": "npm run test",
+    "lint": "npx stylelint \"**/*.{css,scss}\""
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/henokkhm/helpjuice-test-project-frontend-developer/issues"
   },
-  "homepage": "https://github.com/henokkhm/helpjuice-test-project-frontend-developer#readme"
+  "homepage": "https://github.com/henokkhm/helpjuice-test-project-frontend-developer#readme",
+  "devDependencies": {
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.21.0"
+  }
 }
