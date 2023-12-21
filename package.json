@@ -1,0 +1,23 @@
+{
+  "name": "helpjuice-test-project-henokkhm",
+  "version": "1.0.0",
+  "description": "This project contains my solution to the Helpjuice Front-End Developer Test Project",
+  "main": "src/index.html",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henokkhm/helpjuice-test-project-frontend-developer.git"
+  },
+  "keywords": [
+    "helpjuice",
+    "challenge"
+  ],
+  "author": "Henok Kirubel Hailemariam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/henokkhm/helpjuice-test-project-frontend-developer/issues"
+  },
+  "homepage": "https://github.com/henokkhm/helpjuice-test-project-frontend-developer#readme"
+}
