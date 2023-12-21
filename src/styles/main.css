@@ -1,4 +1,6 @@
 body {
-  background-color: aqua;
   font-family: 'Inter', sans-serif;
+  min-width: 375px;
+  max-width: 1440px;
+  margin: 0 auto;
 }
