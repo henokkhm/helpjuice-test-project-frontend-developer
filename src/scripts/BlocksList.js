@@ -22,12 +22,14 @@ class BlocksList {
     this.#blocks.push(newBlock);
 
     localStorage.setItem('blocks', JSON.stringify(this.#blocks));
+    this.renderHTML();
     return newBlock;
   }
 
   removeBlock(id) {
     this.#blocks = this.#blocks.filter((block) => block.id !== id);
     localStorage.setItem('blocks', JSON.stringify(this.#blocks));
+    this.renderHTML();
   }
 
   updateBlock(id, newContent) {
@@ -41,18 +43,32 @@ class BlocksList {
     this.#blocks = newBlocks;
 
     localStorage.setItem('blocks', JSON.stringify(this.#blocks));
+    this.renderHTML();
   }
 
-  generateHTML() {
-    const blocksHTML = [];
+  renderBlocks() {
+    if (this.#blocks.length === 0) {
+      return;
+    }
+
+    const savedBlocksList = document.querySelector(
+      '#editor__saved-blocks-list',
+    );
+    savedBlocksList.innerHTML = '';
+
+    const blocksHTML = document.createDocumentFragment();
 
     this.#blocks.forEach(({ id, type, content }) => {
-      blocksHTML.push(
-        `<${type} class="editor__saved-block-item" data-block-id="${id}" data-block-type="${type}">${content}</${type}>`,
-      );
+      const block = document.createElement(type);
+      block.classList.add('editor__saved-block-item');
+      block.setAttribute('data-block-id', id);
+      block.setAttribute('data-block-type', type);
+      block.textContent = content;
+
+      blocksHTML.appendChild(block);
     });
 
-    return blocksHTML.join('\n');
+    blocksHTML.appendChild(blocksHTML);
   }
 }
 
