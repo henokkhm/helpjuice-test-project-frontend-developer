@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="styles/header-styles.css" />
     <link rel="stylesheet" href="styles/search-bar-styles.css" />
     <link rel="stylesheet" href="styles/hero-styles.css" />
+    <link rel="stylesheet" href="styles/editor-styles.css" />
     <title>Helpjuice Test Project</title>
   </head>
   <body>
@@ -196,6 +197,22 @@
         <h1 class="hero__header">Front-end developer test project</h1>
         <p class="hero__content">The following text editor allows the user to create an H1 element simply by typing <span>/</span> followed by <span>1</span>, then typing the text, and hitting <span>ENTER/RETURN</span>.</p>
         <p class="hero__content">The user can enter normal text by typing it into the text box without adding the <span>/</span> followed by <span>1</span>.</p>
+      </section>
+      <section class="editor-section">
+        <div class="editor__saved-blocks-list" id="editor__saved-blocks-list">
+            <!-- dynamically populated -->
+        </div>
+        <div class="editor__input-wrapper">
+          <textarea class="editor__input" id="editor__input" name="editor__input" cols="30" rows="10" placeholder="Type / for blocks, @ to link docs or people"></textarea>
+          <div class="editor__block-options-popup" id="editor__block-options-popup">
+            <h2 class="block-options-popup__header">Add blocks</h2>
+            <p class="block-options-popup__subheader">Keep typing to filter, or escape to exit</p>
+            <p class="block-options-popup__filter">Filtering keyword <span class="block-options-popup__filtering-keyword" id="block-options-popup__filtering-keyword">1</span></p>
+            <ul class="block-options-popup__block-options-list">
+              <!-- dynamically populated -->
+            </ul>
+          </div>
+        </div>
       </section>
     </main>
     <script src="scripts/index.js"></script>

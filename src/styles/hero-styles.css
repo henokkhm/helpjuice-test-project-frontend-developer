@@ -10,6 +10,7 @@
   border-bottom: 1px solid var(--text-gray-300);
   color: var(--text-gray-900);
   padding: 1rem 0;
+  margin-bottom: 1rem;
   font-size: var(--fs-800);
 }
 
