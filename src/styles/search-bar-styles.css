@@ -1,7 +1,11 @@
 /* Search-bar Styles */
+.search-bar-section {
+  padding: 0 1rem;
+}
+
 .search-bar {
   min-width: 22rem;
-  max-width: 44rem;
+  max-width: 75rem;
   cursor: pointer;
   border: 0.125rem solid var(--text-gray-400);
   box-shadow: 9px 5px 99px -26px rgba(0, 0, 0, 0.54);

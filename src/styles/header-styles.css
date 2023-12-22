@@ -45,7 +45,7 @@
 }
 
 .actions__separator {
-  color: var(--text-gray-200);
+  color: var(--text-gray-300);
 }
 
 .actions__edit {
