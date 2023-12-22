@@ -1,3 +1,3 @@
-const myDiv = document.querySelector('#my-div');
+import addEditorInputEventListeners from './editor.js';
 
-myDiv.innerHTML = 'Hello world';
+window.addEventListener('load', addEditorInputEventListeners);
