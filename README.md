@@ -48,9 +48,9 @@ All the text inputs provided by the user are shown on the page, and also saved t
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-👉 [Link to Live Demo]()
+👉 [Link to Live Demo](https://henokkhm-helpjuice-test-project.netlify.app/)
 
-This site is hosted on []().
+This site is hosted on [Netlify](https://www.netlify.com/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -98,7 +98,7 @@ There are currently no tests in this project.
 
 ### Deployment
 
-To deploy a new version of this project, simply merge code to the **main** branch
+To deploy a new version of this project, simply merge code to the **development** branch
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
