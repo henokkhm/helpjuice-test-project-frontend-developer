@@ -10,12 +10,14 @@ class InputModes {
       {
         id: 0,
         type: 'p',
+        matcher: '0',
         label: 'Paragraph',
         description: 'Simply type text',
         placeholder: 'Type / for blocks, @ to link docs or people',
       },
       {
         id: 1,
+        matcher: '1',
         type: 'h1',
         label: 'Heading 1',
         description: 'Shortcut: type # + space',
@@ -24,6 +26,7 @@ class InputModes {
       {
         id: 2,
         type: 'h1',
+        matcher: '2',
         label: 'Expandable Heading 1',
         description: 'Shortcut: type >># + space',
         placeholder: 'Expandable Heading 1',
@@ -38,20 +41,65 @@ class InputModes {
     return this.#inputModes;
   }
 
-  incrementHighlightedInputModeId() {
-    this.#highlightedInputModeId = (this.#highlightedInputModeId + 1) % this.#inputModes.length;
-  }
-
   decrementHighlightedInputModeId() {
-    this.#highlightedInputModeId = (this.#highlightedInputModeId - 1) % this.#inputModes.length;
+    this.#highlightedInputModeId = (this.#highlightedInputModeId + 1) % this.#inputModes.length;
+
+    this.renderInputModeOptions();
+
+    console.log(
+      `increment highlighted input mode to ${JSON.stringify(
+        this.#highlightedInputModeId,
+      )}`,
+    );
   }
 
-  setCurrentInputModeId(id) {
-    // TODO
-    // onClick => set it to the input mode that was clicked
-    // onKeyPress for "Enter" or "Space" => set it to the input mode that is currently highlighted
-    const selectedInputMode = this.#inputModes.filter((mode) => mode.id === id);
-    this.currentInputMode = selectedInputMode;
+  incrementHighlightedInputModeId() {
+    const len = this.#inputModes.length;
+    this.#highlightedInputModeId = (this.#highlightedInputModeId - 1 + len) % len;
+
+    this.renderInputModeOptions();
+
+    console.log(
+      `decrement highlighted input mode to ${JSON.stringify(
+        this.#highlightedInputModeId,
+      )}`,
+    );
+  }
+
+  setCurrentInputModeToHighlighted() {
+    const highlightedInputMode = this.#inputModes.filter(
+      (mode) => mode.id === this.#highlightedInputModeId,
+    );
+    this.#currentInputMode = highlightedInputMode;
+    this.renderInputModeOptions();
+    console.log(
+      `set current input mode to ${JSON.stringify(this.#currentInputMode)}`,
+    );
+  }
+
+  setCurrentInputModeById(id) {
+    const desiredInputMode = this.#inputModes.find((mode) => mode.id === id);
+    this.#currentInputMode = desiredInputMode;
+    this.renderInputModeOptions();
+    console.log(
+      `set current input mode to ${JSON.stringify(this.#currentInputMode)}`,
+    );
+  }
+
+  setHighlightedInputModeByPrefix(prefix) {
+    const desiredInputMode = this.#inputModes.find(
+      (mode) => mode.matcher === prefix,
+    );
+
+    if (desiredInputMode && desiredInputMode.matcher.startsWith(prefix)) {
+      this.#highlightedInputModeId = desiredInputMode.id;
+      this.renderInputModeOptions();
+    }
+    console.log(
+      `set highlighted input mode to ${JSON.stringify(
+        this.#highlightedInputModeId,
+      )}`,
+    );
   }
 
   renderCurrentInputMode() {
@@ -88,6 +136,7 @@ class InputModes {
           </span>
         </li>
     */
+    console.log('rerender');
     const inputModesWrapper = document.querySelector(
       '#input-mode-options-popup__input-mode-options-list',
     );
@@ -100,6 +149,12 @@ class InputModes {
       const li = document.createElement('li');
       li.classList.add('input-mode-options-list__option-item');
       li.setAttribute('data-input-mode-id', mode.id);
+      console.log(this.#highlightedInputModeId);
+
+      if (mode.id === this.#highlightedInputModeId) {
+        console.log('thisone is hightligh');
+        li.classList.add('highlighted');
+      }
 
       const iconSpan = document.createElement('span');
       iconSpan.classList.add('input-mode-options-list__option-item__icon');

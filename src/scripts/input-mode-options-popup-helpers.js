@@ -5,6 +5,13 @@ export const showInputModeOptionsPopup = () => {
   InputModeOptionsPopup.classList.add('visible');
 };
 
+export const isVisibleInputModeOptionsPopup = () => {
+  const InputModeOptionsPopup = document.querySelector(
+    '#editor__input-mode-options-popup',
+  );
+  InputModeOptionsPopup.contains('visible');
+};
+
 export const hideInputModeOptionsPopup = () => {
   const InputModeOptionsPopup = document.querySelector(
     '#editor__input-mode-options-popup',
