@@ -1,0 +1,26 @@
+/* Search-bar Styles */
+.hero-section {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero__header {
+  border-bottom: 1px solid var(--text-gray-300);
+  color: var(--text-gray-900);
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  font-size: var(--fs-800);
+}
+
+.hero__content {
+  color: var(--text-gray-800);
+  line-height: 1.5;
+}
+
+.hero__content > span {
+  font-weight: 600;
+}
+
+/* ----------------------------- */
