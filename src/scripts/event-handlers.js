@@ -42,7 +42,6 @@ const addEventListeners = (blocksListObject, inputModesObject) => {
       } else if (event.key === 'Enter' || event.key === ' ') {
         inputModesObject.setCurrentInputModeToHighlighted();
       } else if (event.key === 'ArrowUp') {
-        console.log('pressed arrow up');
         inputModesObject.incrementHighlightedInputModeId();
       } else if (event.key === 'ArrowDown') {
         inputModesObject.decrementHighlightedInputModeId();
