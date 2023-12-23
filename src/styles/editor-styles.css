@@ -30,7 +30,7 @@
   background-color: var(--text-gray-200);
 }
 
-.editor__block-options-popup {
+.editor__input-mode-options-popup {
   display: none;
   position: absolute;
   top: 3rem;
@@ -38,32 +38,34 @@
   min-height: 20rem;
   box-shadow: 2px 1px 13px 0 rgba(0, 0, 0, 0.12);
   border-radius: 0.5rem;
-  padding: 1rem 0.75rem;
+  padding: 1rem 0;
   border: 1px solid var(--text-gray-300);
   background-color: var(--white);
 }
 
-.editor__block-options-popup.visible {
+.editor__input-mode-options-popup.visible {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.block-options-popup__header {
+.input-mode-options-popup__header {
   font-size: var(--fs-500);
   color: var(--text-gray-900);
+  padding: 0 0.75rem;
 }
 
-.block-options-popup__subheader {
+.input-mode-options-popup__subheader {
   color: var(--text-gray-500);
+  padding: 0 0.75rem;
 }
 
-.block-options-popup__filter {
+.input-mode-options-popup__filter {
   color: var(--text-gray-600);
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.75rem;
 }
 
-.block-options-popup__filtering-keyword {
+.input-mode-options-popup__filtering-keyword {
   display: none;
   color: var(--white);
   background-color: var(--text-blue);
@@ -71,11 +73,51 @@
   padding: 0.2rem 0.3rem;
 }
 
-.block-options-popup__filtering-keyword.visible {
+.input-mode-options-popup__filtering-keyword.visible {
   display: inline;
 }
 
-.block-options-popup__block-options-list {
+.input-mode-options-popup__input-mode-options-list {
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.input-mode-options-list__option-item {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  gap: 0.25rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 0.5rem 0;
+}
+
+.input-mode-options-list__option-item.highlighted,
+.input-mode-options-list__option-item:hover {
+  background-color: var(--text-gray-100);
+}
+
+.input-mode-options-list__option-item__icon {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  font-family: 'Rokkitt', serif;
+  color: var(--text-gray-500);
+  font-size: var(--fs-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-mode-options-list__option-item__label {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  font-weight: 600;
+  color: var(--text-gray-900);
+}
+
+.input-mode-options-list__option-item__description {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  color: var(--text-gray-500);
 }

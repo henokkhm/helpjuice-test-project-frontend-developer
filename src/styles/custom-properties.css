@@ -1,6 +1,7 @@
 /* Custom Properties */
 :root {
   /* Colors */
+  --text-gray-100: #f3f4f6;
   --text-gray-200: #faf8f8;
   --text-gray-300: #e5e7eb;
   --text-gray-400: #d2d5da;
