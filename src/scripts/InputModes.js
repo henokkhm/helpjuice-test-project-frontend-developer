@@ -41,31 +41,34 @@ class InputModes {
     return this.#inputModes;
   }
 
+  get currentInputMode() {
+    return this.#currentInputMode;
+  }
+
   decrementHighlightedInputModeId() {
     this.#highlightedInputModeId = (this.#highlightedInputModeId + 1) % this.#inputModes.length;
-
     this.renderInputModeOptions();
   }
 
   incrementHighlightedInputModeId() {
     const len = this.#inputModes.length;
     this.#highlightedInputModeId = (this.#highlightedInputModeId - 1 + len) % len;
-
     this.renderInputModeOptions();
   }
 
   setCurrentInputModeToHighlighted() {
-    const highlightedInputMode = this.#inputModes.filter(
+    const highlightedInputMode = this.#inputModes.find(
       (mode) => mode.id === this.#highlightedInputModeId,
     );
     this.#currentInputMode = highlightedInputMode;
-    this.renderInputModeOptions();
+    this.renderCurrentInputMode();
   }
 
   setCurrentInputModeById(id) {
-    const desiredInputMode = this.#inputModes.find((mode) => mode.id === id);
+    const intId = parseInt(id, 10);
+    const desiredInputMode = this.#inputModes.find((mode) => mode.id === intId);
     this.#currentInputMode = desiredInputMode;
-    this.renderInputModeOptions();
+    this.renderCurrentInputMode();
   }
 
   setHighlightedInputModeByPrefix(prefix) {
@@ -81,25 +84,15 @@ class InputModes {
 
   renderCurrentInputMode() {
     const textareaElement = document.querySelector('#editor__input');
-
-    /*
-      Create and render an element such as:
-      <textarea class="editor__input" id="editor__input" name="editor__input" cols="30" rows="10"
-       placeholder="Type / for blocks, @ to link docs or people"></textarea>
-    */
-    const newTextAreaElement = document.createElement('textarea');
-    newTextAreaElement.classList.add('editor__input');
-    newTextAreaElement.classList.add(this.#currentInputMode.type);
-    newTextAreaElement.setAttribute('id', 'editor__input');
-    newTextAreaElement.setAttribute('name', 'editor__input');
-    newTextAreaElement.setAttribute('cols', '30');
-    newTextAreaElement.setAttribute('rows', '10');
-    newTextAreaElement.setAttribute(
+    textareaElement.className = '';
+    textareaElement.classList.add('editor__input');
+    textareaElement.classList.add(this.#currentInputMode.type);
+    textareaElement.setAttribute(
       'placeholder',
       this.#currentInputMode.placeholder,
     );
-
-    textareaElement.replaceWith(newTextAreaElement);
+    textareaElement.value = '';
+    textareaElement.focus();
   }
 
   renderInputModeOptions() {

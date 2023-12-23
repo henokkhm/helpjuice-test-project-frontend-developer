@@ -9,7 +9,7 @@ export const isVisibleInputModeOptionsPopup = () => {
   const InputModeOptionsPopup = document.querySelector(
     '#editor__input-mode-options-popup',
   );
-  InputModeOptionsPopup.contains('visible');
+  return InputModeOptionsPopup && InputModeOptionsPopup.classList.contains('visible');
 };
 
 export const hideInputModeOptionsPopup = () => {

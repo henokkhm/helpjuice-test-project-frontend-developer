@@ -31,10 +31,8 @@ const addEventListeners = (blocksListObject, inputModesObject) => {
     }
   });
 
-  // editorInput.addEventListener('blur', hideInputModeOptionsPopup);
-
   editorInput.addEventListener('keyup', (event) => {
-    if (isVisibleInputModeOptionsPopup) {
+    if (isVisibleInputModeOptionsPopup()) {
       if (event.key === 'Escape') {
         hideInputModeOptionsPopup();
         // TODO: Remove the next line if this is not desired behavior
@@ -48,11 +46,22 @@ const addEventListeners = (blocksListObject, inputModesObject) => {
         inputModesObject.decrementHighlightedInputModeId();
       }
     }
+
+    if (!isVisibleInputModeOptionsPopup()) {
+      if (event.key === 'Backspace' && editorInput.value === '') {
+        inputModesObject.setCurrentInputModeById(0);
+      }
+      if (event.key === 'Escape' && editorInput.value === '') {
+        inputModesObject.setCurrentInputModeById(0);
+      }
+      if (event.key === 'Enter' && editorInput.value.length > 0) {
+        const blockType = inputModesObject.currentInputMode.type;
+        blocksListObject.addBlock(blockType, editorInput.value);
+        inputModesObject.setCurrentInputModeById(0);
+      }
+    }
   });
 
-  /*
-
-  */
   const inputModeOptions = document.querySelector(
     '#editor__input-mode-options-popup',
   );

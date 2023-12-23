@@ -22,14 +22,14 @@ class BlocksList {
     this.#blocks.push(newBlock);
 
     localStorage.setItem('blocks', JSON.stringify(this.#blocks));
-    this.renderHTML();
+    this.renderBlocks();
     return newBlock;
   }
 
   removeBlock(id) {
     this.#blocks = this.#blocks.filter((block) => block.id !== id);
     localStorage.setItem('blocks', JSON.stringify(this.#blocks));
-    this.renderHTML();
+    this.renderBlocks();
   }
 
   updateBlock(id, newContent) {
@@ -43,7 +43,7 @@ class BlocksList {
     this.#blocks = newBlocks;
 
     localStorage.setItem('blocks', JSON.stringify(this.#blocks));
-    this.renderHTML();
+    this.renderBlocks();
   }
 
   renderBlocks() {
@@ -68,7 +68,7 @@ class BlocksList {
       blocksHTML.appendChild(block);
     });
 
-    blocksHTML.appendChild(blocksHTML);
+    savedBlocksList.appendChild(blocksHTML);
   }
 }
 
