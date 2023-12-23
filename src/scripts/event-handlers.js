@@ -41,6 +41,7 @@ const addEventListeners = (blocksListObject, inputModesObject) => {
         editorInput.value = '';
       } else if (event.key === 'Enter' || event.key === ' ') {
         inputModesObject.setCurrentInputModeToHighlighted();
+        hideInputModeOptionsPopup();
       } else if (event.key === 'ArrowUp') {
         inputModesObject.incrementHighlightedInputModeId();
       } else if (event.key === 'ArrowDown') {
