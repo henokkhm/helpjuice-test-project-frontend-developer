@@ -11,7 +11,12 @@
 
 .editor__saved-block-item-wrapper {
   display: flex;
+  align-items: flex-start;
   gap: 1rem;
+}
+
+.editor__saved-block-item {
+  word-break: break-word;
 }
 
 .editor__saved-block-item__delete-btn {
