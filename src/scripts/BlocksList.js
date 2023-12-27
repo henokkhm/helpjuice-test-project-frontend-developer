@@ -47,10 +47,6 @@ class BlocksList {
   }
 
   renderBlocks() {
-    if (this.#blocks.length === 0) {
-      return;
-    }
-
     const savedBlocksList = document.querySelector(
       '#editor__saved-blocks-list',
     );
