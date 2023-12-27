@@ -19,6 +19,10 @@
   word-break: break-word;
 }
 
+.editor__saved-block-item[contenteditable] {
+  outline: 0 solid transparent;
+}
+
 .editor__saved-block-item__delete-btn {
   all: unset;
   transition: all 200ms ease-in-out;
@@ -49,8 +53,7 @@
   position: relative;
 }
 
-.editor__input,
-.editor__saved-block-item__editor {
+.editor__input {
   width: 100%;
   border: none;
   outline: none;
@@ -59,19 +62,11 @@
   min-height: 28rem;
 }
 
-.editor__input.h1,
-.editor__saved-block-item__editor.h1 {
+.editor__input.h1 {
   color: var(--text-gray-900);
   padding: 0.75rem 0.5rem;
   font-size: var(--fs-700);
   font-weight: 700;
-}
-
-.editor__saved-block-item__editor {
-  background: var(--text-gray-200);
-  padding: 0;
-  height: auto;
-  overflow-y: hidden;
 }
 
 .editor__input::placeholder {

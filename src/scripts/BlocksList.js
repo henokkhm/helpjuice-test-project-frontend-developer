@@ -43,7 +43,6 @@ class BlocksList {
     this.#blocks = newBlocks;
 
     localStorage.setItem('blocks', JSON.stringify(this.#blocks));
-    this.renderBlocks();
   }
 
   renderBlocks() {
@@ -64,6 +63,7 @@ class BlocksList {
       block.classList.add('editor__saved-block-item');
       block.setAttribute('data-block-id', id);
       block.setAttribute('data-block-type', type);
+      block.setAttribute('contenteditable', true);
       block.textContent = content;
       wrapper.appendChild(block);
 
@@ -71,20 +71,6 @@ class BlocksList {
     });
 
     savedBlocksList.appendChild(blocksHTML);
-  }
-
-  swapBlockWithInputElement(blockId, oldElem) {
-    const block = this.#blocks.find((block) => block.id === blockId);
-
-    const newTextareaElem = document.createElement('textarea');
-    newTextareaElem.classList.add('editor__saved-block-item__editor');
-    newTextareaElem.setAttribute('id', `editor__saved-block-item__editor-${blockId}`);
-    newTextareaElem.setAttribute('data-block-id', block.id);
-    newTextareaElem.classList.add(block.type);
-    newTextareaElem.value = block.content;
-
-    oldElem.replaceWith(newTextareaElem);
-    newTextareaElem.focus();
   }
 
   static generateDeleteButton(blockId) {

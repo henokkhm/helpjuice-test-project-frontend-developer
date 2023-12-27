@@ -121,24 +121,14 @@ const addBlocksListEventListeners = (blocksListObject) => {
       const intId = parseInt(blockId, 10);
       blocksListObject.removeBlock(intId);
     }
-
-    if (clickedElem.classList.contains('editor__saved-block-item')) {
-      const { blockId } = clickedElem.dataset;
-      const intId = parseInt(blockId, 10);
-      blocksListObject.swapBlockWithInputElement(intId, clickedElem);
-    }
   });
 
   blocksListDiv.addEventListener('keyup', (event) => {
-    const { activeElement } = document;
-    if (
-      event.key === 'Enter'
-      && activeElement
-      && activeElement.classList.contains('editor__saved-block-item__editor')
-    ) {
-      const { blockId } = activeElement.dataset;
+    const { target } = event;
+    if (target.classList.contains('editor__saved-block-item')) {
+      const newBlockContent = target.innerText;
+      const { blockId } = target.dataset;
       const intId = parseInt(blockId, 10);
-      const newBlockContent = activeElement.value;
       blocksListObject.updateBlock(intId, newBlockContent);
     }
   });
