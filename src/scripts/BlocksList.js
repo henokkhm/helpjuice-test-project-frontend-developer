@@ -73,6 +73,20 @@ class BlocksList {
     savedBlocksList.appendChild(blocksHTML);
   }
 
+  swapBlockWithInputElement(blockId, oldElem) {
+    const block = this.#blocks.find((block) => block.id === blockId);
+
+    const newTextareaElem = document.createElement('textarea');
+    newTextareaElem.classList.add('editor__saved-block-item__editor');
+    newTextareaElem.setAttribute('id', `editor__saved-block-item__editor-${blockId}`);
+    newTextareaElem.setAttribute('data-block-id', block.id);
+    newTextareaElem.classList.add(block.type);
+    newTextareaElem.value = block.content;
+
+    oldElem.replaceWith(newTextareaElem);
+    newTextareaElem.focus();
+  }
+
   static generateDeleteButton(blockId) {
     const trashBinSVG = `<svg
             width="12"
