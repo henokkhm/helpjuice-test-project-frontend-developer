@@ -9,6 +9,11 @@
   margin-bottom: 2rem;
 }
 
+.editor__saved-block-item-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
 .editor__saved-blocks-list.h1 {
   color: var(--text-gray-900);
   padding: 1rem 0;
