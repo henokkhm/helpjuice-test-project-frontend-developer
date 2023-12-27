@@ -18,17 +18,3 @@ main {
   gap: 2rem;
   flex-grow: 1;
 }
-
-.delete-btn {
-  all: unset;
-  transition: all 200ms ease-in-out;
-  cursor: pointer;
-}
-
-.delete-btn:hover {
-  transform: scale(1.07);
-}
-
-.delete-btn:hover * {
-  fill: rgb(236, 76, 76);
-}

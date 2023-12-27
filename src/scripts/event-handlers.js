@@ -113,10 +113,11 @@ const addBlocksListEventListeners = (blocksListObject) => {
     if (clickedElem.closest('button')) {
       clickedElem = event.target.closest('button');
     }
-
-    const { blockId } = clickedElem.dataset;
-    const intId = parseInt(blockId, 10);
-    blocksListObject.removeBlock(intId);
+    if (clickedElem.classList.contains('editor__saved-block-item__delete-btn')) {
+      const { blockId } = clickedElem.dataset;
+      const intId = parseInt(blockId, 10);
+      blocksListObject.removeBlock(intId);
+    }
   });
 };
 

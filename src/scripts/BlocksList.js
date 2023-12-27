@@ -88,7 +88,7 @@ class BlocksList {
           </svg>`;
     const btn = document.createElement('button');
     btn.setAttribute('type', 'button');
-    btn.setAttribute('class', 'delete-btn');
+    btn.setAttribute('class', 'editor__saved-block-item__delete-btn');
     btn.setAttribute('data-block-id', blockId);
     btn.innerHTML = trashBinSVG;
 
