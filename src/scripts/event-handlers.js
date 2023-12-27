@@ -97,9 +97,33 @@ const addInputModePopUpEventListeners = (inputModesObject) => {
   });
 };
 
+/**
+ * Adds event listeners to the div that contains saved blocks, that allows the user to
+ * edit or delete each block.
+ * @param {Object} blocksListObject - an instance of the BlocksList class that keeps
+ * track of the blocks that have been added by the user
+ * @returns {void}
+ */
+const addBlocksListEventListeners = (blocksListObject) => {
+  const blocksListDiv = document.querySelector('#editor__saved-blocks-list');
+
+  blocksListDiv.addEventListener('click', (event) => {
+    let clickedElem = event.target;
+
+    if (clickedElem.closest('button')) {
+      clickedElem = event.target.closest('button');
+    }
+
+    const { blockId } = clickedElem.dataset;
+    const intId = parseInt(blockId, 10);
+    blocksListObject.removeBlock(intId);
+  });
+};
+
 const addEventListeners = (blocksListObject, inputModesObject) => {
   addEditorEventListeners(blocksListObject, inputModesObject);
   addInputModePopUpEventListeners(inputModesObject);
+  addBlocksListEventListeners(blocksListObject);
 };
 
 export default addEventListeners;
